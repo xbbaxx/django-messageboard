@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'msgbd/style.css' %}" />
+<title>留言簿</title>
+</head>
+
+<body>
+<div class='page-header'>
+<h2>留言簿</h2>
+</div>
+
+<div class='page-form'>
+    <p>请尽情留言吧!</p>
+    <form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type='submit'>提交</button>
+    </form>
+</div>
+<div>
+{% if latest_message %}
+    <p>历史留言信息</p>
+    <ul>
+    {% for message in latest_message %}
+    <b>{{ message.author }}</b>  留言于：({{ message.create_time }})
+    <p>{{ message.text }}</p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>没有留言</p>
+{% endif %}
+</div>
+<div class='page-bottom'>
+</div>
+</body>
+</html>
