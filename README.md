@@ -1,0 +1,7 @@
+# django-messageboard
+此应用为一个web版本留言簿应用，无需注册，即可直接给网站管理员留言，为个人练手项目
+该应用的开发环境
+一：python  2.7.6
+二：django  1.8.2
+三：Ubuntu  14.04
+四：vim
